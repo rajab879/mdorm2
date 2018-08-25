@@ -1,0 +1,73 @@
+
+composer create-project --prefer-dist laravel/laravel mdorm
+
+php artisan make:auth
+php artisan migrate
+
+To migrate specific Table
+copy the migration file to temp folder
+php artisan migrate --path=database/migrations/temp
+
+To Migrate from Ms sql to mysql
+create database with the same name of exported database and set collation
+
+--------
+composer require niklasravnsborg/laravel-pdf
+ 
+after insatall automatically will add this line to composer.json under require
+ "niklasravnsborg/laravel-pdf": "^2.0"
+ "require": {
+        "php": "^7.1.3",
+        "fideloper/proxy": "^4.0",
+        "laravel/framework": "5.6.*",
+        "laravel/tinker": "^1.0",
+        "niklasravnsborg/laravel-pdf": "^2.0"
+    },
+
+and also will add files to composer.lock
+
+
+to update package 
+composer update niklasravnsborg/laravel-pdf //if not found in composer.json will be removed
+
+to remove packages
+composer remove niklasravnsborg/laravel-pdf
+
+to install all packages inside composer.json or update them
+composer install
+composer update
+
+
+//this package installed to deal with images
+composer  require intervention/image
+
+
+
+Add custom fonts
+copy TTF files have to be located in one folder, e.g. /resources/fonts/
+Add this to your configuration file (/config/pdf.php) if not found use php artisan vendor:publish
+
+return [
+	// ...
+	'font_path' => base_path('resources/fonts/'),
+	'font_data' => [
+		'examplefont' => [
+			'R'  => 'ExampleFont-Regular.ttf',    // regular font
+			'B'  => 'ExampleFont-Bold.ttf',       // optional: bold font
+			'I'  => 'ExampleFont-Italic.ttf',     // optional: italic font
+			'BI' => 'ExampleFont-Bold-Italic.ttf' // optional: bold-italic font
+			//'useOTL' => 0xFF,    // required for complicated langs like Persian, Arabic and Chinese
+			//'useKashida' => 75,  // required for complicated langs like Persian, Arabic and Chinese
+		]
+		// ...add as many as you want.
+	]
+	// ...
+];
+Note: If you are using laravel-pdf for producing PDF documents in a complicated language (like Persian, Arabic or Chinese) you should have useOTL and useKashida indexes in your custom font definition array. If you do not use these indexes, your characters will be shown dispatched and incorrectly in the produced PDF.
+			//'useOTL' => 0xFF,    // required for complicated langs like Persian, Arabic and Chinese
+			//'useKashida' => 75,  // required for complicated langs like Persian, Arabic and Chinese
+Now you can use the font in CSS:
+
+body {
+	font-family: 'examplefont', sans-serif;
+}
