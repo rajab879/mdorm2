@@ -25,13 +25,16 @@ Route::post('/student', 'StudentController@index');
 
 Route::get('/viewstdjson', 'StudentController@viewstdjson');
 Route::post('/viewstdsjsonpost', 'StudentController@viewstdsjsonpost');
+
+Route::get('/viewstdadmin', 'StudentController@viewstdadmin');
+
 Route::get('/dormfilepdf/{std}', 'StudentController@DormFilePDF');
 Route::get('/leavefilepdf/{std}', 'StudentController@LeaveFilePDF');
 
 Route::get('/createstudent', 'StudentController@CreateStudent');
 Route::post('/createstudentjson', 'StudentController@createstudentjson');
 
-Route::get('/viewstdadmin', 'StudentController@viewstdadmin');
+
 Route::get('/editstudent/{id}', 'StudentController@editstudent');
 Route::post('/EditStudentJson', 'StudentController@EditStudentJson');
 Route::post('/delstudentjson', 'StudentController@DelStudentJson');

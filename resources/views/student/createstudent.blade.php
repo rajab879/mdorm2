@@ -397,23 +397,25 @@
                     complete: function() {   $('#btnsend').prop('disabled',false);$('#spinner').hide(); },
 
                     success: function (data) {
+                        $('div').removeClass('has-error');
 
-                        alert(data.d);
                         $('#spinner').hide();
                         $('#diverror').addClass('hidden');
                         $('#uerror').html('');
+                        alert(data.d);
 
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //XMLHttpRequest.status =404
+                        //textStatus =error
+                        //errorThrown =Not Found
                         ;$('#spinner').hide();
                         $('#diverror').addClass('hidden');//remove or add class hidden
                         $('#uerror').html('');
                         $('div').removeClass('has-error');
 
 
-                        //XMLHttpRequest.status =404
-                        //textStatus =error
-                        //errorThrown =Not Found
+
 
 
 
@@ -428,11 +430,6 @@
                         //     console.log(datos+"*"+XMLHttpRequest.responseJSON.errors[datos] );
                         // }
                         //
-
-
-
-
-
                         if(XMLHttpRequest.status ==422)
                         {
                             var errors = XMLHttpRequest.responseJSON;

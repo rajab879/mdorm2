@@ -46,6 +46,8 @@ class Tblstudent extends Model
         return $this->belongsTo('App\Tblsem','semid');//the name of class Model
     }
 
+
+
     public static function ApplyFliter(\Illuminate\Http\Request  $request)
     {
         $query = Tblstudent::query();
@@ -57,7 +59,6 @@ class Tblstudent extends Model
 
 
         $query = $query->with(['tblbuilds:id,build,buildchar', 'tblroomtypes:id,roomtype']);
-
         $query = $query->with('tblcolleges:id,collegename');
         $query = $query->with('tblnationalitys:id,nationalityname');
         $query = $query->with('tblsems');
@@ -134,91 +135,13 @@ class Tblstudent extends Model
         }
 
          $query->where('buildid', '>', 0)->orderBy('buildid', 'asc')->orderBy('roomno', 'asc');
-       //  dd( $query);
+
         return  $query ;
 
     }
 
 
-    public static function ApplyFliterJoin(\Illuminate\Http\Request  $request)
-    {
-        $query = Tblstudent::query();
 
-        if ($request->filled('stdid')) { //or use has instead of filled
-
-
-            $query->where('stdid', $request->stdid);
-
-        }
-        if ($request->filled('fname')) {
-
-
-            $query->where('fname', 'like', '%' . $request->fname . '%');
-
-        }
-
-        if ($request->filled('buildidlist')) {
-
-
-            $query->where('buildid', $request->buildidlist);
-
-        }
-
-        if ($request->filled('roomtypelist')) {
-
-
-            $query->where('roomtypeid', $request->roomtypelist);
-
-        }
-
-        if ($request->filled('collegelist')) {
-
-
-            $query->where('collegeid', $request->collegelist);
-
-        }
-        if ($request->filled('roomno')) {
-
-
-            $query->where('roomno', $request->roomno);
-
-        }
-
-
-        if ($request->filled('mobile')) {
-
-
-            $query->where('mobile', 'like', '%' . $request->mobile . '%');
-
-        }
-
-
-        if ($request->filled('nationalityidlist')) {
-
-
-            $query->where('nationalityid', $request->nationalityidlist);
-
-        }
-
-        if ($request->filled('semlist')) {
-
-
-            $query->where('semid', $request->semlist);
-
-        }
-
-        if ($request->filled('extension')) {
-
-
-            $query->where('extension', $request->extension);
-
-        }
-
-        $query->where('buildid', '>', 0)->orderBy('buildid', 'asc')->orderBy('roomno', 'asc');
-
-        return  $query;
-
-    }
 
     public static function GetStudentById($id)
     {
