@@ -19,6 +19,7 @@ class CreateTblroomtypes extends Migration
 
             $table->timestamps();
         });
+        DB::statement("INSERT INTO `tblroomtypes` VALUES (1,'مفرد مميز',NULL,NULL),(2,'مفرد عادي',NULL,NULL),(3,'ثنائي مميز',NULL,NULL),(4,'ثلاثي  ',NULL,NULL),(5,'ثنائي عادي',NULL,NULL);");
     }
 
     /**

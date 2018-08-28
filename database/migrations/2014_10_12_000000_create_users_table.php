@@ -21,6 +21,17 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+
+
+
+     DB::table('users')->insert(array('name'=>'rajab'  ,'email' => 'rjb_sh@hotmail.com',
+             'password'=> '$2y$10$JKmXKdd0DCRXSO1uLsenze4qiLGS1C1uQLd6TmNwl2rgwC46GTMCW')
+      );//password 123123
+
+        DB::statement('insert into users(name,email,password)values("test","test@test.com","$2y$10$JKmXKdd0DCRXSO1uLsenze4qiLGS1C1uQLd6TmNwl2rgwC46GTMCW")');
+
+
     }
 
     /**

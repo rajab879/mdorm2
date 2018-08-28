@@ -111,25 +111,31 @@
 
  </div>
 
-<script>
-    function enablesem(check){
-        $(check).change(function() {
 
 
-            $( "#semlist" ).prop( "disabled", !check.checked );
+@endsection
+
+@section('scriptcontent')
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#chk').change(function () {
+
+
+                $("#semlist").prop("disabled", !this.checked);
+            });
+
         });
-    }
 
-    function Reset(btnreset){
-
-
-        var items = $("#semlist option").length;
-        $("#semlist")[0].selectedIndex=items-1;
-        $( "#semlist" ).prop( "disabled", true );
-        $( "#chk").prop( "checked", false );
-
-     }
+        function Reset(btnreset){
 
 
-</script>
+            var items = $("#semlist option").length;
+            $("#semlist")[0].selectedIndex=items-1;
+            $( "#semlist" ).prop( "disabled", true );
+            $( "#chk").prop( "checked", false );
+
+        }
+
+    </script>
 @endsection

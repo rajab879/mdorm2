@@ -8,7 +8,7 @@
 
 
         <?php
-        $put=array('test'=>'button','title'=>'بحث');
+        $put=array('test'=>'button','title'=>'المتأخرون');
 
         ?>
         @include('layouts.searchinput',$put)
@@ -32,8 +32,8 @@
                 <th style="text-align:center"> المنطقة</th>
                 <th style="text-align:center">  المانح</th>
                 <th style="text-align:center"> التحويلة</th>
-                <th style="text-align:center"> تسكين</th>
-                <th style="text-align:center"> اخلاء</th>
+                <th style="text-align:center"> التأخير</th>
+
             </tr>
 
             </thead>
@@ -53,7 +53,7 @@
 
         <div id="wait" style="margin: 0;display: block" >
             <span id="scrollmore" style="display: none" >Scroll To Load More</span>
-            <img id="spinner"   style="width:20px;height:20px;display: none" src="Images/FhHRx.gif" />
+            <img id="spinner"   style="width:20px;height:20px;display: none" src="/Images/FhHRx.gif" />
         </div>
         <br>
         <br>
@@ -103,7 +103,7 @@
         $(document).ready(function () {//called after load the page
             var rownumberindex ;
             var total  ;
-            var urlrequest='viewstdsjsonpost';
+            var urlrequest='viewlatejson';
             var current_page;
             var last_page;
             var from;
@@ -156,7 +156,7 @@
                 $('#stdtable tbody').html("");
                 $('#spnrown').html('');
 
-                urlrequest='viewstdsjsonpost';
+                urlrequest='viewlatejson';
                 rownumberindex=0;
                 total = 0;
                 current_page=0;
@@ -168,8 +168,6 @@
                 loadData();
 
             });
-
-
 
 
             function loadData() {
@@ -266,7 +264,7 @@
                                 std.roomno + '</td>   <td>' + std.tblnationalitys.nationalityname + '</td>' +'<td>' + std.country  +
                                 '</td><td>' + std.donor + '</td> <td>' + std.extension + '</td>' +
                                ' <td><a href=dormfilepdf/'+std.id+'>تسكين</a> </td>' +
-                               ' <td><a href=leavefilepdf/'+std.id+'>اخلاء</a> </td>' +
+
                                 '<tr>');
 
 
@@ -289,8 +287,6 @@
                 });
 
             }
-
-
 
 
             //Check to see if the window is top if not then display button

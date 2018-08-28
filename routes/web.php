@@ -38,3 +38,11 @@ Route::post('/createstudentjson', 'StudentController@createstudentjson');
 Route::get('/editstudent/{id}', 'StudentController@editstudent');
 Route::post('/EditStudentJson', 'StudentController@EditStudentJson');
 Route::post('/delstudentjson', 'StudentController@DelStudentJson');
+
+//Route::get('/artist/{id}/{name}', 'HomeController@artist')->where(['id' => '[0-9]+', 'name' => '[a-z]+'])->name('artist');
+Route::get('/addlate/{stdid}/{semid}', 'LateController@addlate');
+Route::get('/addlate', 'LateController@AddLateIndex');
+Route::post('/addlatejson', 'LateController@addlatejson');
+
+Route::get('/viewlate', 'LateController@viewlate');
+Route::post('/viewlatejson', 'LateController@viewlatejson');

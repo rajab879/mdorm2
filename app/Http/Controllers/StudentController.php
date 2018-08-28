@@ -15,6 +15,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 
 
+use Illuminate\Support\Facades\Session;
 use Image;
 use PDF;
 //use Image;
@@ -36,6 +37,7 @@ class StudentController extends Controller
     public function __construct()
     {
      $this->middleware('auth');
+        session(['shiftid' => '1']);
     }
     public static function LoadDataList(){
 
@@ -123,7 +125,7 @@ bottom-right
     public function index(Request $request, Tblstudent $tblstudents)
     {
 
-        $tblstudents2 = Tblstudent::ApplyFliter($request);
+        $tblstudents2 = Tblstudent::ApplyFilter($request);
         $countarr = array('acountarr' => $tblstudents2->count());
         //$str='student?k=0'.$request->getQueryString();
         //getrequest is hidden field to indicate submit button pressed
@@ -133,7 +135,7 @@ bottom-right
         else
             $str = 'student';
 
-        $tblstudents = Tblstudent::ApplyFliter($request)->paginate(50);
+        $tblstudents = Tblstudent::ApplyFilter($request)->paginate(50);
         $tblstudents->withPath($str);
 
         $tblbuilds = Tblbuild::all();
@@ -148,7 +150,9 @@ bottom-right
     }
 
 
-
+    public function viewstdadmin(){
+        return view('Student.viewstdadmin',StudentController::LoadDataList());
+    }
     public function viewstdjson()
     {
      return view('Student.viewstds',StudentController::LoadDataList());
@@ -157,7 +161,7 @@ bottom-right
     public function viewstdsjsonpost(Request $request)
     {
         try{
-        $tblstudents = Tblstudent::ApplyFliter($request)->paginate(50);
+        $tblstudents = Tblstudent::ApplyFilter($request)->paginate(50);
 
         return response()->json( array('d'=>$tblstudents) , 200);
         }catch(\Exception $ex){
@@ -165,9 +169,7 @@ bottom-right
         }
     }
 
-    public function viewstdadmin(){
-        return view('Student.viewstdadmin',StudentController::LoadDataList());
-    }
+
 
     public function DormFilePDF($id){
         if (!is_numeric($id)) {
@@ -375,7 +377,7 @@ working as close as they do, but it is what it is.
 
       //  if ($request->isMethod('post')){
 
-      //      $tblstudents2=  StudentController ::ApplyFliter($request);
+      //      $tblstudents2=  StudentController ::ApplyFilter($request);
        //
       //  }
        // else

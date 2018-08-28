@@ -21,6 +21,9 @@ class CreateTblbuilds extends Migration
 
             $table->timestamps();
         });
+
+        DB::statement("INSERT INTO `tblbuilds` VALUES (1,'M13-A','خالد بن الوليد','A',NULL,NULL),(2,'M13-B','سعد بن ابي وقاص','B',NULL,NULL),(3,'M13-C','صلاح الدين','C',NULL,NULL),(4,'M13-D','طارق بن زياد','D',NULL,NULL),(5,'M13-E','مصعب بن عمير','E',NULL,NULL),(6,'M14','الادارة','m14',NULL,NULL),(7,'M13-B_LAB','مختبر الحاسوب','LAB',NULL,NULL);");
+
     }
 
     /**

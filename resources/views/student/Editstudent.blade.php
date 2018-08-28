@@ -242,7 +242,7 @@
                     </div>
                     <div class="col-sm-4">
                         <input id="chk" name="chk" type="checkbox" onclick="enablesem(this)" />
-                        <span class="text-danger field-validation-valid" data-valmsg-for="nationalityidlist" data-valmsg-replace="true"></span>
+                        <span class="text-danger field-validation-valid" data-valmsg-for="" data-valmsg-replace="true"></span>
                     </div>
                 </div>
 
@@ -314,6 +314,11 @@
                 loadData();
             });
 
+            $('#chk').change(function() {
+
+
+                $( "#semlist" ).prop( "disabled", !this.checked );
+            });
 
 
                 function loadData() {
@@ -459,13 +464,7 @@
 
             }
 
-            function enablesem(check){
-                $(check).change(function() {
 
-
-                    $( "#semlist" ).prop( "disabled", !check.checked );
-                });
-            }
 
             function Reset(btnreset){
 

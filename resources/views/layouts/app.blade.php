@@ -22,10 +22,16 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="{{ asset('css/bootstrap-rtl.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
 </head>
 <body>
     <div id="app">
@@ -56,6 +62,8 @@
                                 <li> <a  href="{{ url('/viewstdjson') }}"  routerLinkActive="active">  بحث</a></li>
                                 <li> <a  href="{{ url('/createstudent') }}"  routerLinkActive="active"> اضافة طالب</a></li>
                                 <li> <a  href="{{ url('/viewstdadmin') }}"  routerLinkActive="active"> تعديل/حذف طالب</a></li>
+                                <li> <a  href="{{ url('/addlate') }}"  routerLinkActive="active">اضافة تأخير</a></li>
+                                <li> <a  href="{{ url('/viewlate') }}"  routerLinkActive="active">  الطلاب المتأخرون</a></li>
 
                             </ul>
                         @endguest
@@ -160,6 +168,9 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    {{--<script src="{{ asset('js/main.js') }}" defer></script>--}}
     @yield('scriptcontent')
 </body>
 </html>

@@ -135,7 +135,7 @@
                 <div class="form-group">
                     <div class="col-md-4">
                         <label class="control-label"> الفصل</label>
-                        <input id="chk" name="chk" type="checkbox" onclick="enablesem(this)" />
+                        <input id="chk" name="chk" type="checkbox"   />
                     </div>
 
                     <div class="col-md-8">

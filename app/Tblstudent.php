@@ -46,9 +46,15 @@ class Tblstudent extends Model
         return $this->belongsTo('App\Tblsem','semid');//the name of class Model
     }
 
+    function tbllates(){
+
+        //return $this->hasMany('App\Tbllates',['semid','stdid']);
+       // return $this->belongsToMany(static::class, 'Tbllates', 'semid', 'stdid');
+    }
 
 
-    public static function ApplyFliter(\Illuminate\Http\Request  $request)
+
+    public static function ApplyFilter(\Illuminate\Http\Request  $request)
     {
         $query = Tblstudent::query();
 
@@ -139,9 +145,6 @@ class Tblstudent extends Model
         return  $query ;
 
     }
-
-
-
 
     public static function GetStudentById($id)
     {

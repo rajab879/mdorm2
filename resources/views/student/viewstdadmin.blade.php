@@ -181,6 +181,12 @@
             });
 
 
+            $('#chk').change(function() {
+
+
+                $( "#semlist" ).prop( "disabled", !this.checked );
+            });
+
             $(window).scroll(function () {
                 //$(document).height() fixed for example 2000px
                 //$(window).height() fixed   for example 1200px
@@ -389,6 +395,7 @@
                                 ' <td><a href=leavefilepdf/'+std.id+'>اخلاء</a> </td>' +
                                 ' <td><a href=editstudent/'+std.id+'>تعديل</a> </td>' +
                                 ' <td><a href="#responsive" class="popdel">del std</a> </td>' +
+                                ' <td><a href=addlate/'+std.id+'/'+std.semid+'>late</a> </td>/' +
                                 '</tr>');
 
 
@@ -438,13 +445,6 @@
 
     </script>
 <script>
-    function enablesem(check){
-        $(check).change(function() {
-
-
-            $( "#semlist" ).prop( "disabled", !check.checked );
-        });
-    }
 
     function Reset(btnreset){
 
